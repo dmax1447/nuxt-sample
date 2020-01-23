@@ -26,9 +26,13 @@
         </li>
       </ul>
 
-      <form v-if="hasToken" @submit.prevent="logout" class="form-inline my-2 my-lg-0" >
-        <p class="mr-sm-2">Hello, {{ username }}</p>
-        <button class="btn btn-outline-success my-2 my-sm-0">Logout</button>
+      <form v-if="hasToken" @submit.prevent="logout" class="form-inline my-2 my-lg-0">
+        <p class="p-2 m-0">
+          Hello, {{ username }}
+        </p>
+        <button class="btn btn-outline-success my-2 my-sm-0">
+          Logout
+        </button>
       </form>
     </div>
   </nav>
