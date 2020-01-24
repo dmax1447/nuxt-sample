@@ -11,7 +11,7 @@
 export default {
   // валидация при заходе на страницу
   validate ({ params }) {
-    return /^\d+$/.test(params.id)
+    return (/^\d+$/.test(params.id) && params.id <= 10)
   },
 
   // вариант 1: загрузка данных юзера для серверного рендера

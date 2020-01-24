@@ -27,6 +27,11 @@ export const getters = {
 }
 
 export const actions = {
+  nuxtServerInit ({ dispatch }) {
+    // запускается один раз при старте на сервере
+    // console.log('nuxtServerInit')
+  },
+
   userLogin ({ commit }, username) {
     commit('setToken', 'mySuperToken')
     commit('setUsername', username)

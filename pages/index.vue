@@ -1,8 +1,12 @@
 <template>
   <div>
     <h1 class="title">
-      Home page
+      Главная страница
     </h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque ex ducimus atque quas tempore! Adipisci unde debitis, maiores ratione accusantium aspernatur necessitatibus, voluptatum neque maxime, quidem qui quam doloremque aut.</p>
+    <p>Приложение работает в режиме SSR</p>
+    <p>Страница about доступна только в случае наличия у пользователя токена.  Чтобы получить токен - залогиньтесь на странице login с любым username</p>
+    <p>Страница users генерируется на основе json c сервера https://jsonplaceholder.typicode.com/users и рендерится на сервере. Список юзеров сохраняется в store</p>
+    <p>Страница user содержит данные пользователя. Данные пользователей берутся из store. Рендерится на сервере. На странице подключен валидатор, который ограничивает параметр роутера id цифрой не более 10</p>
+    <p>Страница login доступна только если вы не залогинены, и использует пустой layout</p>
   </div>
 </template>

@@ -1,12 +1,13 @@
 <template>
   <section>
     <h1>Login page</h1>
+
     <form @submit.prevent="onSubmit">
+      <div v-if="$route.query.message" class="alert alert-danger mb-3">
+        Please login first!
+      </div>
       <div class="form-group">
-        <label>
-          username:
-          <input v-model="username" type="text" class="form-control">
-        </label>
+        <input v-model="username" type="text" class="form-control">
       </div>
       <p>
         <nuxt-link to="/">
