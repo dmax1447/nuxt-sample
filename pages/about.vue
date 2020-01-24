@@ -9,6 +9,7 @@
       <li>online data provided by JSONPlaceholder.com with Axios</li>
       <li>Vuex for data storage and optional routing</li>
       <li>Bootstrap for UI</li>
+      <li>Elements-UI lib</li>
     </ul>
   </div>
 </template>
