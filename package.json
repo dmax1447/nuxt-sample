@@ -20,7 +20,8 @@
     "postcss-scss": "^2.0.0",
     "sass-loader": "^8.0.2",
     "stylelint-config-recommended": "^3.0.0",
-    "stylelint-scss": "^3.13.0"
+    "stylelint-scss": "^3.13.0",
+    "vue-infinite-scroll": "^2.0.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
