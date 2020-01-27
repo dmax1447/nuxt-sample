@@ -3,13 +3,6 @@
     <h1 class="title">
       Users list page
     </h1>
-    <!-- <div>
-      <span>filters:</span>
-      <select v-model="selectedFilter">
-        <option disabled value="">select option</option>
-        <option v-for="option in options" :key="option">{{ option }}</option>
-      </select>
-    </div> -->
     <ul>
       <li v-for="user in users" :key="user.id">
         <a @click.prevent="openUser(user.id)" href="#">{{ user.name }}</a>
@@ -21,8 +14,6 @@
 <script>
 export default {
   data: () => ({
-    // options: ['male', 'female'],
-    // selectedFilter: ''
   }),
 
   computed: {
