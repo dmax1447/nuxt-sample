@@ -94,6 +94,20 @@
         </el-tab-pane>
       </el-tabs>
     </div>
+
+    <hr>
+    <p>Carousel</p>
+    <div class="w-50 mb-4">
+      <el-carousel height="350px">
+        <el-carousel-item v-for="item in 4" :key="item" class="carousel">
+          <img :src="require(`@/assets/img/${item}.jpg`)" class="carousel__image">
+          <h3 class="carousel__title">
+            item # {{ item }}
+          </h3>
+          <p class="carousel__text">Aircraft model:</p>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
   </div>
 </template>
 
