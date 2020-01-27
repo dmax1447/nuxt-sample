@@ -33,7 +33,7 @@
 
       <form v-if="hasToken" @submit.prevent="logout" class="form-inline my-2 my-lg-0">
         <p class="p-2 m-0">
-          Hello, {{ username }}
+          Hello, {{ currentUser }}
         </p>
         <button class="btn btn-outline-success my-2 my-sm-0">
           Logout
@@ -44,15 +44,16 @@
 </template>
 
 <script>
-export default {
-  computed: {
-    hasToken () {
-      return this.$store.getters.hasToken
-    },
+import { mapGetters } from 'vuex'
 
-    username () {
-      return this.$store.getters.username
-    }
+export default {
+
+  computed: {
+    ...mapGetters([
+      'hasToken',
+      'currentUser'
+      // ...
+    ])
   },
 
   methods: {

@@ -4,7 +4,7 @@
       Users list page
     </h1>
     <ul>
-      <li v-for="user in users" :key="user.id">
+      <li v-for="user in userList" :key="user.id">
         <a @click.prevent="openUser(user.id)" href="#">{{ user.name }}</a>
       </li>
     </ul>
@@ -12,14 +12,20 @@
 </template>
 
 <script>
+
+import { mapGetters } from 'Vuex'
+
 export default {
   data: () => ({
   }),
 
   computed: {
-    users () {
-      return this.$store.getters['users/users']
-    }
+    // users () {
+    //   return this.$store.getters['users/users']
+    // }
+    ...mapGetters('users', [
+      'userList'
+    ])
   },
 
   // вариант без стора: асинхронно запросим на сервере данные чтобы использовать их при рендеринге разметки
@@ -28,9 +34,9 @@ export default {
   //   return { users }
   // },
 
-  async fetch ({ store }) {
-    if (store.getters['users/users'].length === 0) {
-      await store.dispatch('users/loadUsers')
+  fetch ({ store }) {
+    if (store.getters['users/userList'].length === 0) {
+      return store.dispatch('users/loadUsers')
     }
   },
 

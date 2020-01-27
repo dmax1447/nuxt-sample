@@ -1,28 +1,28 @@
 export const state = () => ({
-  username: null,
+  currentUser: null,
   token: null
 })
 
 export const mutations = {
-  setUsername (state, payload) {
-    state.username = payload
+  setcurrentUser (state, payload) {
+    state.currentUser = payload
   },
 
   setToken (state, payload) {
     state.token = payload
   },
 
-  clearUsername (state) {
-    state.username = ''
+  clearcurrentUser (state) {
+    state.currentUser = null
   },
 
   clearToken (state) {
-    state.token = ''
+    state.token = null
   }
 }
 
 export const getters = {
-  username: state => state.username,
+  currentUser: state => state.currentUser,
   hasToken: state => !!state.token
 }
 
@@ -32,13 +32,13 @@ export const actions = {
     // console.log('nuxtServerInit')
   },
 
-  userLogin ({ commit }, username) {
+  userLogin ({ commit }, currentUser) {
     commit('setToken', 'mySuperToken')
-    commit('setUsername', username)
+    commit('setcurrentUser', currentUser)
   },
 
   userLogout ({ commit }) {
     commit('clearToken', 'mySuperToken')
-    commit('clearUsername')
+    commit('clearcurrentUser')
   }
 }

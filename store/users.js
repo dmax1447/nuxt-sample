@@ -1,10 +1,10 @@
 export const state = () => ({
-  users: []
+  userList: []
 })
 
 export const mutations = {
   setUsers (state, payload) {
-    state.users = payload
+    state.userList = payload
   }
 }
 
@@ -18,5 +18,5 @@ export const actions = {
 }
 
 export const getters = {
-  users: state => state.users
+  userList: state => state.userList
 }
