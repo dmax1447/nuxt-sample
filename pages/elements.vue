@@ -98,13 +98,15 @@
     <hr>
     <p>Carousel</p>
     <div class="w-50 mb-4">
-      <el-carousel height="350px">
-        <el-carousel-item v-for="item in 4" :key="item" class="carousel">
+      <el-carousel class="carousel">
+        <el-carousel-item v-for="item in 4" :key="item">
           <img :src="require(`@/assets/img/${item}.jpg`)" class="carousel__image">
           <h3 class="carousel__title">
             item # {{ item }}
           </h3>
-          <p class="carousel__text">Aircraft model:</p>
+          <p class="carousel__text">
+            Aircraft model:
+          </p>
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -153,6 +155,10 @@ export default {
     activeTabName: 'first'
   }),
   methods: {
+    handleClick () {
+
+    },
+
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
@@ -169,3 +175,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+.carousel {
+  /* min-height: 500px; */
+  &__{
+
+  }
+
+}
+
+</style>
