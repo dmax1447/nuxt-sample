@@ -99,13 +99,13 @@
     <p>Carousel</p>
     <div class="w-50 mb-4">
       <el-carousel class="carousel">
-        <el-carousel-item v-for="item in 4" :key="item">
-          <img :src="require(`@/assets/img/${item}.jpg`)" class="carousel__image">
+        <el-carousel-item v-for="(item, i) in carouselImagesTitle" :key="i">
+          <img :src="require(`@/assets/img/${i + 1}.jpg`)" class="carousel__image">
           <h3 class="carousel__title">
-            item # {{ item }}
+            item # {{ i + 1 }}
           </h3>
           <p class="carousel__text">
-            Aircraft model:
+            Aircraft model: {{ item }}
           </p>
         </el-carousel-item>
       </el-carousel>
@@ -116,6 +116,7 @@
 <script>
 export default {
   data: () => ({
+    carouselImagesTitle: [ 'Boeing 747', 'Airbus A320', 'Lockheed C130', 'Antonov A-225' ],
     sliderValue: 20,
     rangeValue: [4, 8],
     ruleForm: {
@@ -179,9 +180,26 @@ export default {
 <style lang="scss" scoped>
 
 .carousel {
-  /* min-height: 500px; */
-  &__{
+  position: relative;
 
+  &__image{
+    height: 400px;
+  }
+
+  &__title {
+    position: absolute;
+    left: 30px;
+    bottom: 60px;
+    // background: black;
+    color: white;
+  }
+
+  &__text {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    // background: black;
+    color: white;
   }
 
 }
