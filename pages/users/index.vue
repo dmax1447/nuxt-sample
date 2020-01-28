@@ -34,6 +34,7 @@ export default {
   //   return { users }
   // },
 
+  // вариант с использованием store: перед рендером страницы, для заполнения стора. если метод fetch возвращает промис то nuxt дождется его разрешения
   fetch ({ store }) {
     if (store.getters['users/userList'].length === 0) {
       return store.dispatch('users/loadUsers')
