@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
 export default {
 
@@ -57,9 +57,9 @@ export default {
   },
 
   methods: {
-    logout () {
-      this.$store.dispatch('userLogout')
+    logout() {
+      this.$store.dispatch('userLogout');
     }
   }
-}
+};
 </script>

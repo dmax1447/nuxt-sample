@@ -30,12 +30,12 @@ export default {
   }),
 
   methods: {
-    onSubmit () {
-      this.$store.dispatch('userLogin', this.username)
-      this.$router.push('/')
+    onSubmit() {
+      this.$store.dispatch('userLogin', this.username);
+      this.$router.push('/');
     }
   }
-}
+};
 </script>
 
 <style scoped>

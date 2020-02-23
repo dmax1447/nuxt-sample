@@ -13,7 +13,7 @@
 
 <script>
 
-import { mapGetters } from 'Vuex'
+import { mapGetters } from 'Vuex';
 
 export default {
   data: () => ({
@@ -35,17 +35,17 @@ export default {
   // },
 
   // вариант с использованием store: перед рендером страницы, для заполнения стора. если метод fetch возвращает промис то nuxt дождется его разрешения
-  fetch ({ store }) {
+  fetch({ store }) {
     if (store.getters['users/userList'].length === 0) {
-      return store.dispatch('users/loadUsers')
+      return store.dispatch('users/loadUsers');
     }
   },
 
   methods: {
     // открыть страницу пользователя с переданным id
-    openUser (user) {
-      this.$router.push(`/users/${user}`)
+    openUser(user) {
+      this.$router.push(`/users/${user}`);
     }
   }
-}
+};
 </script>

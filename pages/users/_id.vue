@@ -10,14 +10,14 @@
 <script>
 export default {
   // валидация при заходе на страницу
-  validate ({ params }) {
-    return (/^\d+$/.test(params.id) && params.id <= 10)
+  validate({ params }) {
+    return (/^\d+$/.test(params.id) && params.id <= 10);
   },
 
   // вариант 1: загрузка данных юзера для серверного рендера
-  async asyncData ({ $axios, params }) {
-    const user = await $axios.$get(`https://jsonplaceholder.typicode.com/users/${params.id}`)
-    return { user }
+  async asyncData({ $axios, params }) {
+    const user = await $axios.$get(`https://jsonplaceholder.typicode.com/users/${params.id}`);
+    return { user };
   }
-}
+};
 </script>

@@ -240,23 +240,23 @@ export default {
     activeTabName: 'first'
   }),
   methods: {
-    handleClick () {},
+    handleClick() {},
 
-    submitForm (formName) {
+    submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!')
+          alert('submit!');
         } else {
-          alert('error submit!!')
-          return false
+          alert('error submit!!');
+          return false;
         }
-      })
+      });
     },
-    resetForm (formName) {
-      this.$refs[formName].resetFields()
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
