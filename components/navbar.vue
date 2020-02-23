@@ -24,6 +24,11 @@
             Elements-ui
           </nuxt-link>
         </li>
+        <li class="nav-item">
+          <nuxt-link active-class="active" class="nav-link" to="/sandbox">
+            Sandbox
+          </nuxt-link>
+        </li>
         <li v-if="!hasToken" class="nav-item">
           <nuxt-link active-class="active" class="nav-link" to="/login">
             Login
