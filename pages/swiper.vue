@@ -1,36 +1,31 @@
 <template>
   <div>
-    <h1>Lazy load gallery</h1>
-    <div class="block">
-      <h3>Немного текста чтобы отбить картинки вниз</h3>
-      <p>Картинки в первой галерее грузятся по наведению мышки</p>
-      <p>Картинки во второй галерее грузятся по наведению мышки</p>
-
+    <h1>Swiper</h1>
+    <div class="swiper" v-swiper:swiper="swiperOption">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" v-for="item in pics">
+            <img :src="item" alt="">
+        </div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="bottom-nav swiper-pagination"></div>
     </div>
-
-    <div class="block">
-      <h3>Manual lazy load on hover</h3>
-      <ul class="list">
-        <li v-for="(item, i) in pics" :key="i" class="list__item" @mouseenter="$lazyLoad">
-          <img class="list__item-img" :src="item" data-manual-lazy>
-          <p>загрузка изображения</p>
-        </li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <h3>Auto lazy load (loaded when visible)</h3>
-      <ul class="list">
-        <li v-for="(item, i) in pics" :key="i" class="list__item">
-          <img class="list__item-img" :src="item" v-lazy-load>
-          <p>загрузка изображения</p>
-        </li>
-      </ul>
-    </div>
+<!--    <div class="block">-->
+<!--      <h3>Gallery</h3>-->
+<!--      <ul class="list">-->
+<!--        <li v-for="(item, i) in pics" :key="i" class="list__item">-->
+<!--          <img :src="item" class="list__item-img">-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
   </div>
 </template>
 
 <script>
+// import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
+// import 'swiper/css/swiper.css';
+
 export default {
   data: () => ({
     value: '',
@@ -47,7 +42,22 @@ export default {
       require('@/assets/img/2.jpg'),
       require('@/assets/img/3.jpg'),
       require('@/assets/img/4.jpg')
-    ]
+    ],
+    swiperOption: {
+      autoplay: 3500
+      // setWrapperSize: false,
+      // autoHeight: true,
+      // pagination: '.swiper-pagination',
+      // paginationClickable: true,
+      // prevButton: '.swiper-button-prev',
+      // nextButton: '.swiper-button-next',
+      // mousewheelControl: false,
+      // autoplayDisableOnInteraction: false,
+      // observeParents: true,
+      // grabCursor: true,
+      // preloadImages: false,
+      // lazyLoading: true
+    }
   }),
   computed: {
 
@@ -55,6 +65,17 @@ export default {
 };
 </script>
 <style lang="scss">
+  .swiper-wrapper {
+    width: 700px;
+  }
+
+  .swiper-slide {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   .block {
     margin-top: 20px;
     margin-bottom: 50px;

@@ -26,12 +26,14 @@ export default {
     '@/node_modules/bootstrap/dist/css/bootstrap.min.css',
     '@/node_modules/element-ui/lib/theme-chalk/index.css',
     '@/assets/scss/index.scss'
+    // `swiper/dist/css/swiper.css`
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    { src: '@/plugins/swiper.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -55,6 +57,9 @@ export default {
   ** Build configuration
   */
   build: {
+    vendor: [
+      'swiper'
+    ],
     /*
     ** You can extend webpack config here
     */

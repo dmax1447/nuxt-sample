@@ -15,6 +15,11 @@
           </nuxt-link>
         </li>
         <li class="nav-item">
+          <nuxt-link active-class="active" class="nav-link" to="/swiper">
+            Swiper
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
           <nuxt-link active-class="active" class="nav-link" to="/about">
             About
           </nuxt-link>
