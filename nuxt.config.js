@@ -24,7 +24,8 @@ export default {
   */
   css: [
     '@/node_modules/bootstrap/dist/css/bootstrap.min.css',
-    '@/node_modules/element-ui/lib/theme-chalk/index.css'
+    '@/node_modules/element-ui/lib/theme-chalk/index.css',
+    '@/assets/scss/index.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -45,7 +46,10 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    ['nuxt-lazy-load', {
+      // directiveOnly: true
+    }]
   ],
   /*
   ** Build configuration

@@ -2,11 +2,16 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Logo</a>
 
-    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+    <div id="navbarSupportedContent" class="collapse navbar-collapse d-flex align-items-center">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <nuxt-link exact no-prefetch active-class="active" class="nav-link" to="/">
             Home
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link active-class="active" class="nav-link" to="/gallery">
+            Gallery
           </nuxt-link>
         </li>
         <li class="nav-item">
@@ -29,11 +34,7 @@
             Sandbox
           </nuxt-link>
         </li>
-        <li v-if="!hasToken" class="nav-item">
-          <nuxt-link active-class="active" class="nav-link" to="/login">
-            Login
-          </nuxt-link>
-        </li>
+
       </ul>
 
       <form v-if="hasToken" @submit.prevent="logout" class="form-inline my-2 my-lg-0">
@@ -44,6 +45,11 @@
           Logout
         </button>
       </form>
+      <p v-else class="nav-item mb-0">
+        <nuxt-link active-class="active" class="nav-link" to="/login">
+          Login
+        </nuxt-link>
+      </p>
     </div>
   </nav>
 </template>

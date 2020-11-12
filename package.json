@@ -18,6 +18,7 @@
     "element-ui": "^2.13.0",
     "node-sass": "^4.13.1",
     "nuxt": "^2.0.0",
+    "nuxt-lazy-load": "^1.2.4",
     "postcss-scss": "^2.0.0",
     "sass-loader": "^8.0.2",
     "stylelint-config-recommended": "^3.0.0",
