@@ -1,31 +1,23 @@
 <template>
   <div>
-    <h1>Swiper</h1>
-    <div class="swiper" v-swiper:swiper="swiperOption">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(item, i) in pics" :key="i">
-          <img :src="item" alt="">
-          <p>Slide #{{ i }}</p>
-        </div>
-      </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      <div class="bottom-nav swiper-pagination"></div>
+    <h1>Swiper V2 (components)</h1>
+    <div class="block">
+      <h3>simple</h3>
+<!--      <client-only>-->
+        <swiper :swiper="swiperOption">
+          <swiper-slide v-for="(item, i) in pics" :key="i">
+            <img :src="item" alt="">
+          </swiper-slide>
+          <div class="swiper-button-prev" slot="button-prev"></div>
+          <div class="swiper-button-next" slot="button-next"></div>
+          <div class="swiper-pagination" slot="pagination"></div>
+        </swiper>
+<!--      </client-only>-->
     </div>
-
-<!--    <div class="block">-->
-<!--      <h3>Gallery</h3>-->
-<!--      <ul class="list">-->
-<!--        <li v-for="(item, i) in pics" :key="i" class="list__item">-->
-<!--          <img :src="item" class="list__item-img">-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
   </div>
 </template>
 
 <script>
-// import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 
 export default {
   data: () => ({
@@ -45,19 +37,13 @@ export default {
       require('@/assets/img/4.jpg')
     ],
     swiperOption: {
-      autoplay: 3500
-      // setWrapperSize: false,
-      // autoHeight: true,
-      // pagination: '.swiper-pagination',
-      // paginationClickable: true,
-      // prevButton: '.swiper-button-prev',
-      // nextButton: '.swiper-button-next',
-      // mousewheelControl: false,
-      // autoplayDisableOnInteraction: false,
-      // observeParents: true,
-      // grabCursor: true,
-      // preloadImages: false,
-      // lazyLoading: true
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      pagination: {
+        el: '.swiper-pagination'
+      }
     }
   }),
   computed: {
@@ -68,15 +54,18 @@ export default {
 <style lang="scss">
   .swiper-wrapper {
     width: 100%;
+    height: 600px;
     outline: 1px dashed green;
   }
 
   .swiper-slide {
-    outline: 1px dashed red;
     width: 100%;
+    height: 100%;
+
     img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 

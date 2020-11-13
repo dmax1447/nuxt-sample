@@ -25,8 +25,8 @@ export default {
   css: [
     '@/node_modules/bootstrap/dist/css/bootstrap.min.css',
     '@/node_modules/element-ui/lib/theme-chalk/index.css',
-    '@/assets/scss/index.scss'
-    // `swiper/dist/css/swiper.css`
+    '@/assets/scss/index.scss',
+    '@/node_modules/swiper/swiper-bundle.css'
   ],
   /*
   ** Plugins to load before mounting the App
