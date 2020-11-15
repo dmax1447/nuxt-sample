@@ -11,17 +11,12 @@
         </li>
         <li class="nav-item">
           <nuxt-link active-class="active" class="nav-link" to="/gallery">
-            Gallery
+            Lazy load gallery
           </nuxt-link>
         </li>
         <li class="nav-item">
           <nuxt-link active-class="active" class="nav-link" to="/swiper">
             Swiper
-          </nuxt-link>
-        </li>
-        <li class="nav-item">
-          <nuxt-link active-class="active" class="nav-link" to="/swiper2">
-            Swiper2
           </nuxt-link>
         </li>
         <li class="nav-item">

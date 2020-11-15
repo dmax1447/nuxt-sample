@@ -25,15 +25,15 @@ export default {
   css: [
     '@/node_modules/bootstrap/dist/css/bootstrap.min.css',
     '@/node_modules/element-ui/lib/theme-chalk/index.css',
-    '@/assets/scss/index.scss',
-    '@/node_modules/swiper/swiper-bundle.css'
+    '@/assets/scss/index.scss'
+    // '@/node_modules/swiper/swiper-bundle.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
     '@/plugins/element-ui',
-    { src: '@/plugins/swiper.js', ssr: false }
+    // { src: '@/plugins/swiper.js', ssr: false }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -50,7 +50,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     ['nuxt-lazy-load', {
-      // directiveOnly: true
+      directiveOnly: true
     }]
   ],
   /*

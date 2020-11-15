@@ -1,33 +1,45 @@
 <template>
   <div>
-    <h1>Swiper</h1>
-    <div class="swiper" v-swiper:swiper="swiperOption">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(item, i) in pics" :key="i">
-          <img :src="item" alt="">
-          <p>Slide #{{ i }}</p>
+    <h1><a href="https://github.surmon.me/vue-awesome-swiper/">Vue-awesome-slide</a></h1>
+    <div class="block">
+      <h3>v1: Swiper on directive, SSR</h3>
+      <div class="swiper" v-swiper="swiperOption">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="(item, i) in pics" :key="i">
+            <img :src="item" alt="">
+          </div>
         </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="bottom-nav swiper-pagination"></div>
       </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      <div class="bottom-nav swiper-pagination"></div>
     </div>
-
-<!--    <div class="block">-->
-<!--      <h3>Gallery</h3>-->
-<!--      <ul class="list">-->
-<!--        <li v-for="(item, i) in pics" :key="i" class="list__item">-->
-<!--          <img :src="item" class="list__item-img">-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
+    <div class="block">
+      <h3>v2: Swiper on components</h3>
+      <swiper :options="swiperOption" class="swiper">
+        <swiper-slide v-for="(item, i) in pics" :key="i">
+          <img :src="item" alt="">
+        </swiper-slide>
+        <div slot="button-prev" class="swiper-button-prev" />
+        <div slot="button-next" class="swiper-button-next" />
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
   </div>
 </template>
 
 <script>
-// import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
+import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
+import 'swiper/css/swiper.css';
 
 export default {
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+  directives: {
+    swiper: directive
+  },
   data: () => ({
     value: '',
     pics: [
@@ -45,19 +57,18 @@ export default {
       require('@/assets/img/4.jpg')
     ],
     swiperOption: {
-      autoplay: 3500
-      // setWrapperSize: false,
-      // autoHeight: true,
-      // pagination: '.swiper-pagination',
-      // paginationClickable: true,
-      // prevButton: '.swiper-button-prev',
-      // nextButton: '.swiper-button-next',
-      // mousewheelControl: false,
-      // autoplayDisableOnInteraction: false,
-      // observeParents: true,
-      // grabCursor: true,
-      // preloadImages: false,
-      // lazyLoading: true
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        dynamicBullets: true
+      },
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: true
+      }
     }
   }),
   computed: {
@@ -68,15 +79,14 @@ export default {
 <style lang="scss">
   .swiper-wrapper {
     width: 100%;
-    outline: 1px dashed green;
   }
 
   .swiper-slide {
-    outline: 1px dashed red;
     width: 100%;
     img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -92,63 +102,5 @@ export default {
   h3 {
     margin-bottom: 20px;
   }
-  .list {
-    position: relative;
-    display: grid;
-    grid-gap: 20px;
-    list-style: none;
-    flex-wrap: wrap;
-    padding: 0;
-    grid-template-columns: 1fr 1fr 1fr;
 
-    &__item {
-      position: relative;
-      width: 100%;
-      height: 200px;
-
-      padding-left: 0;
-      border-radius: 10px;
-      overflow: hidden;
-
-      p {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        text-align: center;
-        transform: translate(-50%, -50%);
-      }
-
-      img {
-        background-color: #ddeef0;
-      }
-
-      img.isLoading + p {
-        display: none;
-      }
-
-      img.isLoaded + p {
-        display: none;
-      }
-
-      &:nth-child(2n) img {
-        background-color: #fdeacd;
-      }
-
-      &:nth-child(3n) img {
-        background-color: #cbe4e7;
-      }
-    }
-
-    &__item-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
-    }
-
-    .isLoading {
-      background-color: blue;
-    }
-
-  }
 </style>

@@ -12,7 +12,7 @@
       <h3>Manual lazy load on hover</h3>
       <ul class="list">
         <li v-for="(item, i) in pics" :key="i" class="list__item" @mouseenter="$lazyLoad">
-          <img class="list__item-img" :src="item" data-manual-lazy>
+          <img class="list__item-img" :data-src="item" data-manual-lazy>
           <p>загрузка изображения</p>
         </li>
       </ul>
@@ -22,7 +22,7 @@
       <h3>Auto lazy load (loaded when visible)</h3>
       <ul class="list">
         <li v-for="(item, i) in pics" :key="i" class="list__item">
-          <img class="list__item-img" :src="item" v-lazy-load>
+          <img class="list__item-img" :data-src="item" v-lazy-load>
           <p>загрузка изображения</p>
         </li>
       </ul>
