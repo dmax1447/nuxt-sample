@@ -25,7 +25,8 @@
     "stylelint-scss": "^3.13.0",
     "swiper": "5.4.5",
     "vue-awesome-swiper": "^4.1.1",
-    "vue-infinite-scroll": "^2.0.2"
+    "vue-infinite-scroll": "^2.0.2",
+    "vue-select": "^3.10.8"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",

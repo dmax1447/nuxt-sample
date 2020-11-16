@@ -1,13 +1,9 @@
 <template>
-  <div class="search">
-    <h2>input with suggestions:</h2>
-    <label class="search__label" for="input">выбери кота:</label>
-    <input v-model="value" class="search__input" type="text">
-    <ul v-if="value && suggestions.length > 1" class="search__suggestion-list">
-      <li v-for="(item, i) in suggestions" @click="value = item" :key="i" class="search__suggestion-item">
-        {{ item }}
-      </li>
-    </ul>
+  <div>
+    <div class="block">
+      <h3><a href="https://vue-select.org/">Vue-select with search and suggestion</a></h3>
+      <v-select :options="suggestionsBase" v-model="vSelectValue" />
+    </div>
   </div>
 </template>
 
@@ -15,6 +11,7 @@
 export default {
   data: () => ({
     value: '',
+    vSelectValue: '',
     suggestionsBase: [
       'рыжий кот',
       'черный кот',

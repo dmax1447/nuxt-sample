@@ -3,7 +3,7 @@
     <h1><a href="https://github.surmon.me/vue-awesome-swiper/">Vue-awesome-slide</a></h1>
     <div class="block">
       <h3>v1: Swiper on directive, SSR</h3>
-      <div v-swiper="swiperOption" class="swiper">
+      <div v-swiper="swiperOption1" class="swiper">
         <div class="swiper-wrapper">
           <div v-for="(item, i) in pics" :key="i" class="swiper-slide">
             <img :src="item" alt="">
@@ -11,12 +11,12 @@
         </div>
         <div class="swiper-button-prev" />
         <div class="swiper-button-next" />
-        <div class="bottom-nav swiper-pagination" />
+        <div class="swiper-pagination" />
       </div>
     </div>
     <div class="block">
       <h3>v2: Swiper on components</h3>
-      <swiper :options="swiperOption" class="swiper">
+      <swiper :options="swiperOption2" class="swiper">
         <swiper-slide v-for="(item, i) in pics" :key="i">
           <img :src="item" alt="">
         </swiper-slide>
@@ -56,7 +56,17 @@ export default {
       require('@/assets/img/3.jpg'),
       require('@/assets/img/4.jpg')
     ],
-    swiperOption: {
+    swiperOption1: {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      }
+    },
+    swiperOption2: {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
@@ -83,10 +93,13 @@ export default {
 
   .swiper-slide {
     width: 100%;
+    height: 600px;
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      border-radius: 10px;
+      overflow: hidden;
     }
   }
 
