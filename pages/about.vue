@@ -1,16 +1,9 @@
 <template>
   <div>
-    <h1>
-      About this app
-    </h1>
-    <h2>Features:</h2>
-    <ul>
-      <li>SSR powered by Vue.JS and Nuxt</li>
-      <li>online data provided by JSONPlaceholder.com with Axios</li>
-      <li>Vuex for data storage and optional routing</li>
-      <li>Bootstrap for UI</li>
-      <li>Elements-UI lib</li>
-    </ul>
+    <h1>Restricted page</h1>
+    <h3>only for logged user with token</h3>
+    <h4>Features:</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid aspernatur, deserunt dolorum earum et illum iusto magni natus obcaecati omnis ratione tempora! Aliquid deleniti dolor maiores numquam quae tempora!</p>
   </div>
 </template>
 

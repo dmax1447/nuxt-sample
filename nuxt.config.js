@@ -1,6 +1,5 @@
 
 export default {
-  mode: 'universal',
   /*
   ** Headers of the page
   */
@@ -32,7 +31,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui',
+    '@/plugins/element-ui'
     // { src: '@/plugins/swiper.js', ssr: false }
   ],
   /*
@@ -57,9 +56,6 @@ export default {
   ** Build configuration
   */
   build: {
-    vendor: [
-      'swiper'
-    ],
     /*
     ** You can extend webpack config here
     */

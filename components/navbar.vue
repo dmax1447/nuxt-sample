@@ -39,7 +39,6 @@
             Sandbox
           </nuxt-link>
         </li>
-
       </ul>
 
       <form v-if="hasToken" @submit.prevent="logout" class="form-inline my-2 my-lg-0">

@@ -5,14 +5,13 @@
       <h3>Немного текста чтобы отбить картинки вниз</h3>
       <p>Картинки в первой галерее грузятся по наведению мышки</p>
       <p>Картинки во второй галерее грузятся по наведению мышки</p>
-
     </div>
 
     <div class="block">
       <h3>Manual lazy load on hover</h3>
       <ul class="list">
-        <li v-for="(item, i) in pics" :key="i" class="list__item" @mouseenter="$lazyLoad">
-          <img class="list__item-img" :data-src="item" data-manual-lazy>
+        <li v-for="(item, i) in pics" :key="i" @mouseenter="$lazyLoad" class="list__item">
+          <img :data-src="item" data-manual-lazy class="list__item-img">
           <p>загрузка изображения</p>
         </li>
       </ul>
@@ -22,7 +21,7 @@
       <h3>Auto lazy load (loaded when visible)</h3>
       <ul class="list">
         <li v-for="(item, i) in pics" :key="i" class="list__item">
-          <img class="list__item-img" :data-src="item" v-lazy-load>
+          <img :data-src="item" v-lazy-load class="list__item-img">
           <p>загрузка изображения</p>
         </li>
       </ul>
