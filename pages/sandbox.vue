@@ -1,8 +1,13 @@
 <template>
   <div>
     <div class="block">
-      <h3><a href="https://vue-select.org/">Vue-select with search and suggestion</a></h3>
-      <v-select :options="suggestionsBase" v-model="vSelectValue" />
+      <h1><a href="https://vue-select.org/">Vue-select with search and suggestion</a></h1>
+      <hr>
+      <h3>Обычный селект с поиском по данным</h3>
+      <v-select :options="pets" v-model="vSelectValue" />
+      <hr>
+      <h3>Селект с асинхронным поиском по данным dadata</h3>
+      <v-select @search="searchAddress" v-model="address" :options="addressSuggestions" :filterable="false" label="value" />
     </div>
   </div>
 </template>
@@ -10,9 +15,11 @@
 <script>
 export default {
   data: () => ({
+    address: '',
+    addressSuggestions: [],
     value: '',
     vSelectValue: '',
-    suggestionsBase: [
+    pets: [
       'рыжий кот',
       'черный кот',
       'белый кот',
@@ -28,9 +35,29 @@ export default {
     ]
   }),
   computed: {
-    suggestions() {
-      const suggestionsFounded = this.suggestionsBase.filter(item => item.includes(this.value));
-      return suggestionsFounded.slice(0, 5);
+  },
+  methods: {
+    searchAddress(val, loading) {
+      const dadataToken = '9c4d4344a2efdece2594dd7b25e1c75d885fc044';
+      const dadataApiUrl = 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address';
+      const requestData = {
+        query: val,
+        count: 5
+      };
+      const requestConfig = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Token ' + dadataToken
+        }
+      };
+
+      this.$axios.post(dadataApiUrl, requestData, requestConfig)
+        .then((response) => {
+          if (response.status === 200 && response.data.suggestions) {
+            this.addressSuggestions = [...response.data.suggestions];
+          }
+        });
     }
   }
 };
