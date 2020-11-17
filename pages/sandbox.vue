@@ -7,13 +7,23 @@
       <v-select :options="pets" v-model="vSelectValue" />
       <hr>
       <h3>Селект с асинхронным поиском по данным dadata</h3>
-      <v-select @search="searchAddress" v-model="address" :options="addressSuggestions" :filterable="false" label="value" />
+      <v-select
+        v-model="address"
+        :options="addressSuggestions"
+        :filterable="false"
+        :clearSearchOnSelect="isSearchClearble"
+        @search="searchAddress"
+        @change="onAddressChange"
+        label="value"
+      />
+      <p>Точность определения адреса:  {{ addressAccuracyLabel }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'SandboxPage',
   data: () => ({
     address: '',
     addressSuggestions: [],
@@ -35,6 +45,39 @@ export default {
     ]
   }),
   computed: {
+    addressAccuracyLabel() {
+      if (!this.address || !this.address.data.fias_level) {
+        return 'нет данных';
+      }
+
+      switch (this.address.data.fias_level) {
+        case '8':
+          return 'дом';
+        case '7':
+          return 'улица';
+        case '6':
+          return 'дом';
+        case '5':
+          return 'улица';
+        case '4':
+          return 'дом';
+        case '3':
+          return 'район';
+        case '2':
+          return 'автономный округ';
+        case '1':
+          return 'регион';
+        default:
+          return 'нет данных';
+      }
+    },
+    isSearchClearble() {
+      return true;
+      // if (!this.address) {
+      //   return false;
+      // }
+      // return this.address.data.fias_level > 7;
+    }
   },
   methods: {
     searchAddress(val, loading) {
@@ -58,6 +101,9 @@ export default {
             this.addressSuggestions = [...response.data.suggestions];
           }
         });
+    },
+    onAddressChange(val) {
+      console.log('onChange', val);
     }
   }
 };
