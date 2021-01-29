@@ -16,7 +16,7 @@
     </div>
     <div class="block">
       <h3>v2: Swiper on components</h3>
-      <swiper :options="swiperOption2" class="swiper">
+      <swiper ref="slider2r" :options="swiperOption2" class="swiper">
         <swiper-slide v-for="(item, i) in pics" :key="i">
           <img :src="item" alt="">
         </swiper-slide>
@@ -24,6 +24,13 @@
         <div slot="button-next" class="swiper-button-next" />
         <div slot="pagination" class="swiper-pagination" />
       </swiper>
+      <div class="swiper-switch">
+        <label class="swiper-switch__label">Active slide: </label>
+        <el-input v-model="activeSlide" name="activeSlide" class="swiper-switch__input" />
+        <el-button @click="setSlide" type="primary" class="swiper-switch__btn">
+          Set
+        </el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -41,7 +48,10 @@ export default {
     swiper: directive
   },
   data: () => ({
+    activeSlide: null,
     value: '',
+    slider1: null,
+    slider2: null,
     pics: [
       require('@/assets/img/1.jpg'),
       require('@/assets/img/2.jpg'),
@@ -83,12 +93,24 @@ export default {
   }),
   computed: {
 
+  },
+  mounted() {
+    this.$swiper2 = this.$refs.slider2r.$swiper;
+  },
+  methods: {
+    setSlide() {
+      this.$swiper2.slideTo(this.activeSlide - 1, 1500);
+    }
   }
 };
 </script>
 <style lang="scss">
   .swiper-wrapper {
     width: 100%;
+  }
+
+  .swiper {
+    margin-bottom: 1rem;
   }
 
   .swiper-slide {
@@ -114,6 +136,20 @@ export default {
 
   h3 {
     margin-bottom: 20px;
+  }
+
+  .swiper-switch {
+    display: flex;
+    align-items: center;
+    &__label {
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
+
+    &__input {
+      width: 120px;
+      margin-right: 1rem;
+    }
   }
 
 </style>
