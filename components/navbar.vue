@@ -35,6 +35,11 @@
           </nuxt-link>
         </li>
         <li class="nav-item">
+          <nuxt-link active-class="active" class="nav-link" to="/vuetify">
+            Vuetify
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
           <nuxt-link active-class="active" class="nav-link" to="/sandbox">
             Sandbox
           </nuxt-link>
