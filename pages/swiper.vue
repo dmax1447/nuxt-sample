@@ -3,15 +3,15 @@
     <h1><a href="https://github.surmon.me/vue-awesome-swiper/">Vue-awesome-slide</a></h1>
     <div class="block">
       <h3>v1: Swiper on directive, SSR</h3>
-      <div class="swiper" v-swiper="swiperOption">
+      <div v-swiper="swiperOption" class="swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="(item, i) in pics" :key="i">
+          <div v-for="(item, i) in pics" :key="i" class="swiper-slide">
             <img :src="item" alt="">
           </div>
         </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        <div class="bottom-nav swiper-pagination"></div>
+        <div class="swiper-button-prev" />
+        <div class="swiper-button-next" />
+        <div class="bottom-nav swiper-pagination" />
       </div>
     </div>
     <div class="block">
@@ -22,8 +22,11 @@
         </swiper-slide>
         <div slot="button-prev" class="swiper-button-prev" />
         <div slot="button-next" class="swiper-button-next" />
-        <div class="swiper-pagination" slot="pagination"></div>
+        <div slot="pagination" class="swiper-pagination" />
       </swiper>
+    </div>
+    <div class="block">
+      <AppSlider />
     </div>
   </div>
 </template>
@@ -31,9 +34,11 @@
 <script>
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
+import AppSlider from '~/components/AppSlider.vue';
 
 export default {
   components: {
+    AppSlider,
     Swiper,
     SwiperSlide
   },
