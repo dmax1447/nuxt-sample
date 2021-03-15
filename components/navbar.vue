@@ -35,11 +35,15 @@
           </nuxt-link>
         </li>
         <li class="nav-item">
+          <nuxt-link active-class="active" class="nav-link" to="/vuetify">
+            Vuetify
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
           <nuxt-link active-class="active" class="nav-link" to="/sandbox">
             Sandbox
           </nuxt-link>
         </li>
-
       </ul>
 
       <form v-if="hasToken" @submit.prevent="logout" class="form-inline my-2 my-lg-0">

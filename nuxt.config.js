@@ -32,6 +32,8 @@ export default {
   */
   plugins: [
     '@/plugins/element-ui',
+    '@/plugins/vue-select',
+    '@/plugins/vuetify',
     // { src: '@/plugins/swiper.js', ssr: false }
   ],
   /*
@@ -41,7 +43,8 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/vuetify'
   ],
   /*
   ** Nuxt.js modules
@@ -56,9 +59,6 @@ export default {
   ** Build configuration
   */
   build: {
-    vendor: [
-      'swiper'
-    ],
     /*
     ** You can extend webpack config here
     */
