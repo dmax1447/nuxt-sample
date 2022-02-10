@@ -16,7 +16,7 @@
     "@nuxtjs/axios": "^5.9.3",
     "bootstrap": "^4.4.1",
     "element-ui": "^2.13.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "nuxt": "^2.0.0",
     "nuxt-lazy-load": "^1.2.4",
     "postcss-scss": "^2.0.0",
